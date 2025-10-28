@@ -3,8 +3,10 @@
 import { useEffect, useState } from "react";
 import styles from "./rainbow-stars.module.css";
 
-const Star = ({ style }: { style: React.CSSProperties }) => (
-  <span className={styles.star} style={style} />
+const StarEmoji = ({ style }: { style: React.CSSProperties }) => (
+  <span className={styles.star} style={style} role="img" aria-label="star">
+    ⭐
+  </span>
 );
 
 export default function RainbowStars() {
@@ -26,13 +28,12 @@ export default function RainbowStars() {
   return (
     <div className={styles.container}>
       {stars.map((s, i) => (
-        <Star
+        <StarEmoji
           key={i}
           style={{
             top: `${s.top}%`,
             left: `${s.left}%`,
-            width: `${s.size}px`,
-            height: `${s.size}px`,
+            fontSize: `${s.size * 10}px`,
             animationDelay: `${s.delay}s`,
           }}
         />
