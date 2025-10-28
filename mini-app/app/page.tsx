@@ -1,5 +1,6 @@
 import { description, title, url } from "@/lib/metadata";
 import { Metadata } from "next";
+import RainbowStars from "@/components/rainbow-stars";
 
 export const dynamic = "force-dynamic";
 
@@ -33,7 +34,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function Home() {
   return (
-    <main className="flex flex-col gap-3 place-items-center px-4">
+    <main className="relative flex flex-col gap-3 place-items-center px-4">
+      <RainbowStars />
       <span className="text-2xl">{title}</span>
       <span className="text-muted-foreground">{description}</span>
     </main>
