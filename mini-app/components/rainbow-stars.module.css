@@ -1,26 +1,25 @@
 .container {
-  position: absolute;
+  position: fixed;
   inset: 0;
-  background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
   overflow: hidden;
   z-index: -1;
 }
 
 .star {
   position: absolute;
+  width: 2px;
+  height: 2px;
   background: white;
   border-radius: 50%;
-  opacity: 0.2;
-  animation: twinkle 2s infinite ease-in-out;
+  opacity: 0.8;
+  animation: float 10s linear infinite;
 }
 
-@keyframes twinkle {
-  0%, 100% {
-    opacity: 0.2;
-    transform: scale(1);
+@keyframes float {
+  0% {
+    transform: translateY(0) scale(1);
   }
-  50% {
-    opacity: 1;
-    transform: scale(1.5);
+  100% {
+    transform: translateY(-100vh) scale(0.5);
   }
 }

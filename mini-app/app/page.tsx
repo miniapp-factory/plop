@@ -1,6 +1,6 @@
-import { description, title, url } from "@/lib/metadata";
+import { description, title, url } from "../lib/metadata";
+import RainbowStars from "../components/rainbow-stars";
 import { Metadata } from "next";
-import RainbowStars from "@/components/rainbow-stars";
 
 export const dynamic = "force-dynamic";
 
@@ -8,25 +8,9 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     other: {
       "fc:miniapp": JSON.stringify({
-        version: "next",
-        imageUrl: `${url}/icon.png`,
-        ogTitle: title,
-        ogDescription: description,
-        ogImageUrl: `${url}/icon.png`,
-        button: {
-          title: "Launch Mini App",
-          action: {
-            type: "launch_miniapp",
-            name: title,
-            url: url,
-            splashImageUrl: `${url}/icon.png`,
-            iconUrl: `${url}/icon.png`,
-            splashBackgroundColor: "#000000",
-            description: description,
-            primaryCategory: "utility",
-            tags: [],
-          },
-        },
+        title,
+        description,
+        url,
       }),
     },
   };
@@ -34,10 +18,12 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function Home() {
   return (
-    <main className="relative flex flex-col gap-3 place-items-center px-4">
+    <main className="relative w-full h-screen overflow-hidden">
       <RainbowStars />
-      <span className="text-2xl">{title}</span>
-      <span className="text-muted-foreground">{description}</span>
+      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center">
+        <h1 className="text-6xl font-bold text-white mb-4">{title}</h1>
+        <p className="text-xl text-white">{description}</p>
+      </div>
     </main>
   );
 }
